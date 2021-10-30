@@ -11,10 +11,11 @@
 </head>
 <body class="container">
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal"><a href = "index.html">Page Name</a></h5>
-        <a class="btn btn-outline-primary" id="logout-button" href="#">Log out</a>
+        <!-- <h5 class="my-0 mr-md-auto font-weight-normal"><a href = "index.html">Page Name</a></h5> -->
+        <h5 class="my-0 mr-md-auto font-weight-normal"><font color=#007bff>Welcome to Page Name</font></h5>
+		<a class="btn btn-outline-primary" id="logout-button" href="#">Log out</a>
     </div>
-        <header>
+        <header align="center">
             <h1><font color="blue">Feel free to add your information</font></h1>
         </header>
     
@@ -31,39 +32,55 @@
 						<input class="form-control" type="lastName" name="lastName" id="lastName" value="" placeholder="Smith" required>
 					</div>
 					<div class="form-group">
-						<label for="location">Where do you live?</label>
+						<label for="location">Address</label>
 						<input class="form-control" type="address" name="location" id="location" value="" placeholder="City, State, Country" required>
 					</div>
-					<label for="gender">Gender</label>
+					<label for="title">Title</label>
 					<div class="radio">
-						<label>
-						<input type="radio" name="gender" value="male">
-						Male
-						</label>
+						<label><input type="radio" name="title" value="mr"> Mr.</label>
 					</div>
 					<div class="radio">
-						<label>
-						<input type="radio" name="gender" value="female">
-						Female
-						</label>
+						<label><input type="radio" name="title" value="miss"> Miss</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="title" value="ms"> Ms.</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="title" value="mrs"> Mrs.</label>
 					</div>
 					<div class="form-group">
 						<label for="occupation">Occupation</label>
 						<select id="occupation" class="form-control" name="occupation">
 						<option value="">None</option>
-						<option value="professor">Professor</option>
-						<option value="student">Student</option>
-						<option value="engineer">Engineer</option>
-						<option value="designer">Designer</option>
-						<option value="writer">Writer</option>
-						<option value="volunteer">Volunteer</option>
-						<option value="editor">Editor</option>
+						<option value="administrator">Administrator</option>
+						<option value="advisor">Advisor</option>
+						<option value="analyst">Analyst</option>
 						<option value="artist">Artist</option>
+						<option value="assistant">Assistant</option>
+						<option value="designer">Designer</option>
+						<option value="developer">Developer</option>
+						<option value="editor">Editor</option>
+						<option value="engineer">Engineer</option>
+						<option value="journalist">Journalist</option>
+						<option value="professor">Professor</option>
+						<option value="manager">Project Manager</option>
+						<option value="secretary">Secretary</option>
+						<option value="student">Student</option>
+						<option value="volunteer">Volunteer</option>
 						<option value="wanderer">Wanderer</option>
+						<option value="writer">Writer</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="profilePic">Add your profile picture</label>
+						<label for="phonenumber">Phone</label>
+						<input class="form-control" type="contact" name="phonenumber" id="phonenumber" value="" placeholder="(657) 123 4567">
+					</div>
+					<div class="form-group">
+						<label for="bio">Biography</label>
+						<textarea class="form-control" type="text" name="bio" id="bio" rows="5" value="" placeholder="Write something about you here..."></textarea>
+					</div>
+					<div class="form-group">
+						<label for="profilepic">Add your profile picture</label>
 						<input class="upload" type="file" id="profilepic" onchange="setFiles(this)" />
 						<br>
 						<img style="width:300px" id="blah" src="/img/pfp.jpg" alt="image" />
