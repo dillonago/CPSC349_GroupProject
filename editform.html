@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Your Info</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="stylesheets/main.css">
+    <!-- <style> form :focus:required:invalid { border-color: #d53230 }</style> -->
+</head>
+<body class="container">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal"><a href = "index.html">Page Name</a></h5>
+        <a class="btn btn-outline-primary" id="logout-button" href="#">Log out</a>
+    </div>
+        <header>
+            <h1><font color="blue">Feel free to add your information</font></h1>
+        </header>
+    
+    <section>
+        <div class="panel panel-default">
+			<div class="panel-body">
+				<form user-form="form">
+					<div class="form-group">
+						<label for="name">First Name</label>
+						<input class="form-control" name="firstName" id="firstName" autofocus placeholder="John" required pattern="[a-zA-Z\s]+">
+					</div>
+					<div class="form-group">
+						<label for="name">Last Name</label>
+						<input class="form-control" type="lastName" name="lastName" id="lastName" value="" placeholder="Smith" required>
+					</div>
+					<div class="form-group">
+						<label for="location">Where do you live?</label>
+						<input class="form-control" type="address" name="location" id="location" value="" placeholder="City, State, Country" required>
+					</div>
+					<label for="gender">Gender</label>
+					<div class="radio">
+						<label>
+						<input type="radio" name="gender" value="male">
+						Male
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+						<input type="radio" name="gender" value="female">
+						Female
+						</label>
+					</div>
+					<div class="form-group">
+						<label for="occupation">Occupation</label>
+						<select id="occupation" class="form-control" name="occupation">
+						<option value="">None</option>
+						<option value="professor">Professor</option>
+						<option value="student">Student</option>
+						<option value="engineer">Engineer</option>
+						<option value="designer">Designer</option>
+						<option value="writer">Writer</option>
+						<option value="volunteer">Volunteer</option>
+						<option value="editor">Editor</option>
+						<option value="artist">Artist</option>
+						<option value="wanderer">Wanderer</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="profilePic">Add your profile picture</label>
+						<input class="upload" type="file" id="profilepic" onchange="setFiles(this)" />
+						<br>
+						<img style="width:300px" id="blah" src="/img/pfp.jpg" alt="image" />
+					</div>
+		
+					<button type="submit" onclick="uploadFiles()" class="btn btn-default">Submit</button>
+					<button type="reset" class="btn btn-default">Reset</button>
+				</form>
+			</div>
+        </div>
+    </section>
+    
+    <footer class="index-footer">
+		<br>
+		<p>Team2DE</p>
+	</footer>
+</body>
+</html>
