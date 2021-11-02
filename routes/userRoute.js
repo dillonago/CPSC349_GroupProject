@@ -43,8 +43,8 @@ router.post('/register', async (req, res) => {
     //Create new user.
     const user = new User({
         username: req.body.username,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         street: req.body.street,
         city: req.body.city,
         state: req.body.state,
@@ -197,9 +197,9 @@ router.post('/edit_profile', requireAuth, async (req, res) => {
 
 //Login
 router.post('/login', async (req,res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     try {
-        const user = await User.login(username, password);
+        const user = await User.login(email, password);
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         console.log(user._id);
