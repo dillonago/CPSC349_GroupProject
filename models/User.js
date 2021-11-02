@@ -7,19 +7,49 @@ const userSchema = new mongoose.Schema({
         max: 100,
         min: 4
     }, 
-    name: {
+    firstName: {
         type: String, 
         max: 100,
         min: 4
     }, 
+    lastName: {
+        type: String, 
+        max: 100,
+        min: 4
+    },
+    street: {
+        type: String, 
+        min: 6
+    }, 
+    city: {
+        type: String, 
+        min: 3
+    }, 
+    state: {
+        type: String,
+        min: 2
+    },
+    zip: {
+        type: String, 
+        default: ""
+    },
+    title: {
+        type: String, 
+        min: 2
+    },
+    occupation: {
+        type: String, 
+        min: 4
+    }, 
+    phone: {
+        type: String, 
+        default: ""
+    },
     bio: {
         type: String, 
         min: 10
     },
-    type: {
-        type: String, 
-        min: 4
-    },
+
     email: {
         type: String, 
         min: 6, 
@@ -29,18 +59,6 @@ const userSchema = new mongoose.Schema({
         type: String, 
         max: 1024, 
         min: 6
-    },
-    date: {
-        type: Date, 
-        default: Date.now
-    },
-    phone: {
-        type: String, 
-        default: ""
-    },
-    zip: {
-        type: String, 
-        default: ""
     }
 });
 
