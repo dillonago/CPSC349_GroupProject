@@ -14,7 +14,7 @@
         <!-- <h5 class="my-0 mr-md-auto font-weight-normal"><a href = "index.html">Page Name</a></h5> -->
         <h5 class="my-0 mr-md-auto font-weight-normal"><font color=#007bff>Welcome to Page Name</font></h5>
 		<nav class="my-2 my-md-0 mr-md-3">
-            <a class="btn btn-outline-primary" id="logout-button" href="#">Log out</a>
+            <a class="btn btn-outline-primary" id="logout-button" href="user/logout">Log out</a>
         </nav>
     </div>
         <header align="center">
@@ -24,7 +24,7 @@
     <section>
         <div class="panel panel-default">
 			<div class="panel-body">
-				<form user-form="form">
+				<form user-form="form" action="user/edit_profile" method="post">
 					<div class="form-group">
 						<label for="name">First Name</label>
 						<input class="form-control" name="firstName" id="firstName" autofocus placeholder="John" required pattern="[a-zA-Z\s]+">
@@ -35,7 +35,10 @@
 					</div>
 					<div class="form-group">
 						<label for="location">Address</label>
-						<input class="form-control" type="address" name="location" id="location" value="" placeholder="City, State, Country" required>
+						<input class="form-control" type="address" name="street" id="street" value="" placeholder="Street" required>
+						<input class="form-control" type="address" name="city" id="city" value="" placeholder="City" required>
+						<input class="form-control" type="address" name="state" id="state" value="" placeholder="State" required>
+						<input class="form-control" type="address" name="zip" id="zip" value="" placeholder="Zip" required>
 					</div>
 					<label for="title">Title</label>
 					<div class="radio">
@@ -75,7 +78,7 @@
 					</div>
 					<div class="form-group">
 						<label for="phonenumber">Phone</label>
-						<input class="form-control" type="contact" name="phonenumber" id="phonenumber" value="" placeholder="(657) 123 4567">
+						<input class="form-control" type="contact" name="phone" id="phone" value="" placeholder="(657) 123 4567">
 					</div>
 					<div class="form-group">
 						<label for="bio">Biography</label>

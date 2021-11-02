@@ -43,13 +43,18 @@ router.post('/register', async (req, res) => {
     //Create new user.
     const user = new User({
         username: req.body.username,
-        name: req.body.name,
-        type: req.body.type,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        title: req.body.title,
+        occupation: req.body.occupation,
+        phone: req.body.phone,
         bio: req.body.bio,
         email: req.body.email,
-        password: hashedPassword,
-        phone: req.body.phone,
-        zip: req.body.zip
+        password: hashedPassword
     });
 
     try{
@@ -89,10 +94,12 @@ router.post('/delete', requireAuth, async (req,res) => {
 });
 
 //Edit profile
-router.post('/edit_profile', requireAuth, async (req, res) => { 
+router.post('/edit_profile', requireAuth, async (req, res) => {
+ 
     const token = req.cookies.jwt;
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
     var userId = decoded.id;
+/*
     if(req.body.password){
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -103,20 +110,78 @@ router.post('/edit_profile', requireAuth, async (req, res) => {
             console.log("Pass updated");
         });
     }
-    if(req.body.name){
-        User.findOneAndUpdate({_id: userId}, {$set:{name: req.body.name}}, {new: true}, (err, doc) => {
+*/
+    if(req.body.firstName){
+        User.findOneAndUpdate({_id: userId}, {$set:{firstName: req.body.firstName}}, {new: true}, (err, doc) => {
             if(err){
                 console.log("Something went wrong");
             }
-            console.log("Name updated");
+            console.log("First name updated");
         });
     }
-    if(req.body.type){
-        User.findOneAndUpdate({_id: userId}, {$set:{type: req.body.type}}, {new: true}, (err, doc) => {
+    if(req.body.lastName){
+        User.findOneAndUpdate({_id: userId}, {$set:{lastName: req.body.lastName}}, {new: true}, (err, doc) => {
             if(err){
                 console.log("Something went wrong");
             }
-            console.log("Type updated");
+            console.log("Last name updated");
+        });
+    }
+
+    if(req.body.street){
+        User.findOneAndUpdate({_id: userId}, {$set:{street: req.body.street}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("Street updated");
+        });
+    }
+    if(req.body.city){
+        User.findOneAndUpdate({_id: userId}, {$set:{city: req.body.city}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("City updated");
+        });
+    }
+    if(req.body.state){
+        User.findOneAndUpdate({_id: userId}, {$set:{state: req.body.state}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("State updated");
+        });
+    }
+    if(req.body.zip){
+        User.findOneAndUpdate({_id: userId}, {$set:{zip: req.body.zip}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("ZIP updated");
+        });
+    }
+    if(req.body.title){
+        User.findOneAndUpdate({_id: userId}, {$set:{title: req.body.title}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("Title updated");
+        });
+    }
+    if(req.body.occupation){
+        User.findOneAndUpdate({_id: userId}, {$set:{occupation: req.body.occupation}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("Occupation updated");
+        });
+    }
+    if(req.body.phone){
+        User.findOneAndUpdate({_id: userId}, {$set:{phone: req.body.phone}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("Phone updated");
         });
     }
     if(req.body.bio){
@@ -127,34 +192,7 @@ router.post('/edit_profile', requireAuth, async (req, res) => {
             console.log("Bio updated");
         });
     }
-    if(req.body.email){
-        User.findOneAndUpdate({_id: userId}, {$set: {email: req.body.email}}, {new: true}, (err, doc) => {
-            if(err){
-                console.log("Something went wrong");
-            }
-            console.log("Email updated.");
-        });
-    }
-    if(req.body.phone){
-        User.findOneAndUpdate({_id: userId}, {$set:{phone: req.body.phone}}, {new: true}, (err, doc) => {
-            if(err){
-                console.log("Something went wrong");
-            }
-            console.log("Phone updated");
-        });
-
-    }
-    if(req.body.zip){
-        User.findOneAndUpdate({_id: userId}, {$set:{zip: req.body.zip}}, {new: true}, (err, doc) => {
-            if(err){
-                console.log("Something went wrong");
-            }
-            console.log("ZIP updated");
-        });
-    }
     res.redirect('/user');
-
-
 });
 
 //Login
