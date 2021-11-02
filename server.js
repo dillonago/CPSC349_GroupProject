@@ -63,6 +63,10 @@ app.get('/editform', (req, res) => {
     res.render('editform');
 });
 
+app.get('/result', (req, res) => {
+   res.render('result');
+});
+
 //defining routes
 const userRoute = require('./routes/userRoute');
 
