@@ -15,7 +15,7 @@ router.get('/', requireAuth, (req, res) =>  {
     // Fetch the user by id
     User.findOne({ _id: userId }).then((user) => {
         if(user) {
-            res.render('result', { user });
+            res.render('cardPreview', { user });
         }
     });
 });
