@@ -20,15 +20,17 @@
     </div>
 
     <main role="main">
-        <h2 class = "mainText">Here is your card!</h2>
-        <p class="lead text-muted" align="center">(Refresh the page if you've made some changes)</p>
-        <h2 class="jumbotron-heading" align="center">Thank you for choosing our service. 🤗</h2>
-
-        <div class="card-wrapper">
+        <div class="container marketing">
+            <h2 class = "mainText">Here is your card!</h2>
+            <p class="lead text-muted" align="center">(Refresh the page if you've made some changes)</p>
+            <h2 class="jumbotron-heading" align="center">Thank you for choosing our service. 🤗 </h2>
+            <br>
+            <br>
+            <br>
             <div class="card">
                 <div class="card-front">
                     <div class="left">
-                        <img src="logo.png"/>
+                        <img src="logo.png">
                         <h4><%= user.occupation %></h4>
                     </div>
                     <div class="right">
@@ -60,15 +62,13 @@
                     </div>
                 </div>
                 <div class="card-back">
-                    <img src="logo.png"/>
+                    <p><%= user.bio %> </p>
                 </div>
             </div>
-
-            <footer class="index-footer">
-                <p>Team2DE</p>
-            </footer>
-        </div> 
-
+        </div>
+        <footer class="index-footer">
+            <p>Team2DE</p>
+        </footer> 
     </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
