@@ -86,9 +86,17 @@
 					</div>
 					<div class="form-group">
 						<label for="profilepic">Add your profile picture</label>
-						<input class="upload" type="file" id="profilepic" onchange="setFiles(this)" />
-						<br>
-						<img style="width:300px" id="blah" src="pfp.jpg" alt="image" />
+						<input type="file" accept="image/*" onchange="loadFile(event)">
+						<img style="width:300px" id="output"/>
+						<script>
+						var loadFile = function(event) {
+							var output = document.getElementById('output');
+							output.src = URL.createObjectURL(event.target.files[0]);
+							output.onload = function() {
+							URL.revokeObjectURL(output.src)
+							}
+						};
+						</script>
 					</div>
 		
 					<button type="submit" onclick="uploadFiles()" class="btn btn-default">Submit</button>
