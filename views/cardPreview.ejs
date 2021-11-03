@@ -14,9 +14,9 @@
 <body>
     <div class="container">
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-            <h5 class="my-0 mr-md-auto font-weight-normal"><a href = "index.html">Page Name</a></h5>
+            <a class="btn btn-primary my-2" href="index">Main Page</a>
             <nav class="my-2 my-md-0 mr-md-3">
-                <a class="btn btn-outline-primary" href="signup.html">Sign up</a>
+                <a class="btn btn-outline-primary" href="/signup">Sign up</a>
             </nav>
         </div>
     </div>
@@ -27,34 +27,34 @@
             <div class="card-front">
                 <div class="left">
                     <img src="logo.png"/>
-                    <h4><span>Web</span> Design</h4>
+                    <h4><%= user.occupation %></h4>
                 </div>
                     <div class="right">
                         <div class="person right-content">
                             <i class="fas fa-user-tie"></i>
                             <div>
-                                <h4>John Smith</h4>
-                                <p>Web Design</p>
+                                <h4><%= user.firstName %> <%= user.lastName %></h4>
+                                <p><%= user.occupation %></p>
                             </div>
                         </div>
                         <div class="phone right-content">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <p>+555-5555-5555</p>
+                                <p>+<%= user.phone %></p>
                                 <p>+555-5555-5555</p>
                             </div>
                         </div>
                         <div class="email right-content">
                             <i class="fas fa-envelope-open"></i>
                             <div>
-                                <p>johnsmith@gmail.com</p>
+                                <p><%= user.email %></p>
                             </div>
                         </div>
                         <div class="address right-content">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <p>Main Street 123</p>
-                                <p>New York, NY</p>
+                                <p><%= user.street %> <%= user.zip %></p>
+                                <p><%= user.city %>, <%= user.state %></p>
                             </div>
                         </div>
                     </div>
