@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
-        crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="all.css" rel="stylesheet">
+    <link rel="stylesheet" href="all.css">
     <link rel="stylesheet" href="main.css"/>
     <title>Card Preview</title>
 </head>
@@ -32,39 +31,39 @@
                         <img src="logo.png"/>
                         <h4><%= user.occupation %></h4>
                     </div>
-                        <div class="right">
-                            <div class="person right-content">
-                                <i class="fas fa-user-tie"></i>
-                                <div>
-                                    <h4><%= user.firstName %> <%= user.lastName %></h4>
-                                    <p><%= user.occupation %></p>
-                                </div>
+                    <div class="right">
+                        <div class="person right-content">
+                            <i class="fas fa-user-tie"></i>
+                            <div>
+                                <h4 style="text-transform: capitalize;"><%= user.firstName %> <%= user.lastName %></h4>
+                                <p><%= user.occupation %></p>
                             </div>
-                            <div class="phone right-content">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <p class="phone-line">+<%= user.phone %></p>
-                                </div>
+                        </div>
+                        <div class="phone right-content">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p class="phone-line"><%= user.phone %></p>
                             </div>
-                            <div class="email right-content">
-                                <i class="fas fa-envelope-open"></i>
-                                <div>
-                                    <p class="email-line"><%= user.email %></p>
-                                </div>
+                        </div>
+                        <div class="email right-content">
+                            <i class="fas fa-envelope-open"></i>
+                            <div>
+                                <p class="email-line"><%= user.email %></p>
                             </div>
-                            <div class="address right-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <p class="address-line"><%= user.street %> <%= user.zip %> <%= user.city %>, <%= user.state %></p>
-                                </div>
+                        </div>
+                        <div class="address right-content">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <p class="address-line" style="font-size: small;"><%= user.street %>, <%= user.city %>, <%= user.state %> <%= user.zip %></p>
                             </div>
                         </div>
                     </div>
+                </div>
                 <div class="card-back">
                     <img src="logo.png"/>
                 </div>
             </div>
-            
+
             <footer class="index-footer">
                 <p>Team2DE</p>
             </footer>
