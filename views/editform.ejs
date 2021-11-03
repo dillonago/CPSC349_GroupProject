@@ -36,8 +36,11 @@
 					<div class="form-group">
 						<label for="location">Address</label>
 						<input class="form-control" type="address" name="street" id="street" value="" placeholder="Street" required>
+						<br>
 						<input class="form-control" type="address" name="city" id="city" value="" placeholder="City" required>
+						<br>
 						<input class="form-control" type="address" name="state" id="state" value="" placeholder="State" required>
+						<br>
 						<input class="form-control" type="address" name="zip" id="zip" value="" placeholder="Zip" required>
 					</div>
 					<label for="title">Title</label>
@@ -78,7 +81,7 @@
 					</div>
 					<div class="form-group">
 						<label for="phonenumber">Phone</label>
-						<input class="form-control" type="contact" name="phone" id="phone" value="" placeholder="(657) 123 4567">
+						<input class="form-control" type="tel" name="phone" id="phone" value="" placeholder="1 (657) 123 4567">
 					</div>
 					<div class="form-group">
 						<label for="bio">Biography</label>
@@ -99,7 +102,7 @@
 						</script>
 					</div>
 		
-					<button type="submit" onclick="uploadFiles()" class="btn btn-default">Submit</button>
+					<button type="submit" onclick="uploadFiles()" class="btn btn-outline-primary">Submit</button>
 					<button type="reset" class="btn btn-default">Reset</button>
 				</form>
 			</div>
