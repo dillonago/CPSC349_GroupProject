@@ -1,9 +1,13 @@
+const express = require('express');
 const router = require('express').Router();
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const { requireAuth } = require('../middleware/authMiddleware');
 
 const bcrypt = require('bcryptjs');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
 const {registerValidation, loginValidation, deleteValidation} = require('../validation')
 
 //user profile page
@@ -19,6 +23,35 @@ router.get('/', requireAuth, (req, res) =>  {
         }
     });
 });
+
+//For uploading
+var storage = multer.diskStorage({
+    destination: function(req, file, cb){
+       cb(null, 'uploads')
+    }, 
+    filename: function(req, file, cb){
+       //cb(null, file.fieldname + '-' + Date.now());
+       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+ })
+ 
+ var upload = multer({
+    storage:storage
+ })
+ 
+//Uploading image
+router.post('/uploadphoto', requireAuth, upload.single('myImage'), (req,res) => {
+    const token = req.cookies.jwt;
+    const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+    var userId = decoded.id;
+    User.findOneAndUpdate({_id: userId}, {$set:{image: req.file.filename}}, {new: true}, (err, doc) => {
+       if(err){
+           console.log("Something went wrong");
+       }
+       console.log("image updated");
+       res.redirect('/user');
+   });
+ })
 
 //creating a token used for the user in the current session
 const maxAge = 3 * 24 * 60 * 60;
@@ -53,7 +86,8 @@ router.post('/register', async (req, res) => {
         phone: req.body.phone,
         bio: req.body.bio,
         email: req.body.email,
-        password: hashedPassword
+        password: hashedPassword, 
+        image: req.body.myImage
     });
 
     try{
@@ -93,8 +127,8 @@ router.post('/delete', requireAuth, async (req,res) => {
 });
 
 //Edit profile
-router.post('/edit_profile', requireAuth, async (req, res) => {
- 
+router.post('/edit_profile', requireAuth, upload.single('myImage'), async (req, res) => {
+    console.log(req.file);
     const token = req.cookies.jwt;
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
     var userId = decoded.id;
@@ -191,6 +225,14 @@ router.post('/edit_profile', requireAuth, async (req, res) => {
             console.log("Bio updated");
         });
     }
+    
+        User.findOneAndUpdate({_id: userId}, {$set:{image: req.file.filename}}, {new: true}, (err, doc) => {
+            if(err){
+                console.log("Something went wrong");
+            }
+            console.log("image updated");
+        });
+    
     res.redirect('/user');
 });
 

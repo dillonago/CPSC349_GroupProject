@@ -1,5 +1,18 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+/*
+const imgSchema = new mongoose.Schema({
+    contentType: {
+        type: String
+    }, 
+    path: {
+        type: String
+    }, 
+    data: {
+        type: Buffer
+    }
+});
+*/
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -54,6 +67,9 @@ const userSchema = new mongoose.Schema({
         type: String, 
         max: 1024, 
         min: 6
+    }, 
+    image: {
+       type: String
     }
 });
 

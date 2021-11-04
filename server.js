@@ -5,6 +5,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const fs = require('fs');
 const User = require('./models/User');
 
 dotenv.config();
@@ -29,6 +31,8 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
 
 //Middleware to send post requests
 app.use(express.json());
+
+app.use(express.static('uploads'));
 
 // frontend routes =========================================================
 app.get('/', (req, res) => {
