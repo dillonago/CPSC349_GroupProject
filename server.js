@@ -21,13 +21,18 @@ app.set('view engine', 'ejs');
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+   extended: true
+}));
 app.use(cookieParser());
 app.use(express.static(__dirname + '/assets/img'));
 app.use(express.static(__dirname + '/assets/css'));
 
 // config files
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true}); //Mongoose connection created
+mongoose.connect(process.env.DB_CONNECT, {
+   useNewUrlParser: true,
+   useUnifiedTopology: true
+}); //Mongoose connection created
 
 //Middleware to send post requests
 app.use(express.json());
@@ -37,38 +42,44 @@ app.use(express.static('uploads'));
 // frontend routes =========================================================
 app.get('/', (req, res) => {
    const token = req.cookies.jwt;
-   if(token) {
+   if (token) {
       const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
       var userId = decoded.id;
       console.log(userId);
       // Fetch the user by id
-      User.findOne({ _id: userId }).then((user) => {
-         if(user) {
-            res.render('index', { user });
+      User.findOne({
+         _id: userId
+      }).then((user) => {
+         if (user) {
+            res.render('index', {
+               user
+            });
          } else {
             res.render('index');
          }
       });
    } else {
-      res.render('index', { user: false });
+      res.render('index', {
+         user: false
+      });
    }
 });
 
 
 app.get('/signup', (req, res) => {
-    res.render('signup');
+   res.render('signup');
 });
 
 app.get('/login', (req, res) => {
-    res.render('login');
+   res.render('login');
 });
 
 app.get('/editform', (req, res) => {
-    res.render('editform');
+   res.render('editform');
 });
 
-app.get('/result', (req, res) => {
-   res.render('result');
+app.get('/delete', (req, res) => {
+   res.render('delete');
 });
 
 //defining routes

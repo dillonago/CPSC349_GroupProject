@@ -6,7 +6,7 @@ const registerValidation = (data) => {
         username: Joi.string()
             .min(4),
         type: Joi.string()
-            .min(4),    
+            .min(4),
         bio: Joi.string()
             .min(10),
         email: Joi.string()
@@ -26,9 +26,10 @@ const registerValidation = (data) => {
 //Login validation
 const loginValidation = (data) => {
     const schema = Joi.object({
-        username: Joi.string()
+        email: Joi.string()
             .min(6)
-            .required(),
+            .required()
+            .email(),
         password: Joi.string()
             .min(6)
             .required()
@@ -42,10 +43,7 @@ const deleteValidation = (data) => {
         email: Joi.string()
             .min(6)
             .required()
-            .email(),
-        password: Joi.string()
-            .min(6)
-            .required()
+            .email()
     });
     return schema.validate(data);
 }
