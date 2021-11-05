@@ -15,7 +15,7 @@ a. (If on VSCode, you can open the file and use the terminal on there to do so b
 
 3. If there is no .env file when you clone the repository, you will have to make on yourself. It will be 2 lines with the variables:
    DB_CONNECT = <link to your MongoDB database>
-   TOKEN_SECRET = <Random characters for the encryption>
+   TOKEN_SECRET = <random characters for the encryption>
   
 4. Run the Application using either of these commands:
   'npm start' or 'node server.js'
